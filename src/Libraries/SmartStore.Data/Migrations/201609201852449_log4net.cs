@@ -21,9 +21,10 @@ namespace SmartStore.Data.Migrations
                 }
                 else
                 {
-                    Sql(@"SET LOCK_TIMEOUT 20000;");
-                    DropIndex("Log", "IX_Log_ContentHash");
-                    Sql(@"DELETE FROM Log;");
+                    // Removing this Index ends up complaining further into migrations about the Index being missing.
+                    //Sql(@"SET LOCK_TIMEOUT 20000;");
+                    //DropIndex("Log", "IX_Log_ContentHash");
+                    //Sql(@"DELETE FROM Log;");
                 }
             }
 			// Custom END
